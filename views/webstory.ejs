@@ -55,8 +55,8 @@
             </amp-story-grid-layer>
             <amp-story-grid-layer template="thirds">
                 <amp-img width = "67" height = "67" layout = "fixed" grid-area="upper-third" src = "https://quintype-dropbox.s3-accelerate.amazonaws.com/prabhatkhabar.quintype.com/2020-02-26/1232/logo_512.png" style="border-radius: 10px;"></amp-img>
-                <h1  style="color: white; font-weight: 500; font-size: 32px;" grid-area="lower-third"><%= headlineCover %></h1>
-                <p  style="color: white; margin-top: auto;" grid-area="lower-third"><%= ownerNameCover %></p>
+                <h1  style="color: white; font-weight: 500; font-size: 32px;" grid-area="lower-third"><%= allData.items[index]['headline'] %></h1>
+                <p  style="color: white; margin-top: auto;" grid-area="lower-third"><%= allData.items[index]['owner-name'] %></p>
               </amp-story-grid-layer>
         </amp-story-page>
 
@@ -64,7 +64,7 @@
     <% for (let indexOfPage = 0; indexOfPage < allData.items[index].cards.length; indexOfPage++) { %>
         <amp-story-page id="page<%= indexOfPage + 1 %>" >
             <amp-story-grid-layer template="fill">
-                <amp-img src="<%=baseUrl+ encodeURIComponent(allData.items[index].cards[currentCardIndexImage++]["story-elements"][0]['image-s3-key']) %>"
+                <amp-img src="<%=baseUrl+ encodeURIComponent(allData.items[index].cards[indexOfPage]["story-elements"][0]['image-s3-key']) %>"
         width="720" height="1280"
         layout="responsive"
         alt="">
@@ -74,8 +74,8 @@
             <amp-story-grid-layer template="thirds">
                 <amp-img width = "67" height = "67" layout = "fixed" grid-area="upper-third" src = "https://quintype-dropbox.s3-accelerate.amazonaws.com/prabhatkhabar.quintype.com/2020-02-26/1232/logo_512.png" style="border-radius: 10px;"></amp-img>
                     <div grid-area="lower-third" style="background-color: black; transform: skewY(5deg); margin-top: auto; width: 403px;     ">
-                <p style="color: white; font-weight: 600; transform: skewY(-5deg); font-size: 23px;" ><%= allData.items[index].cards[currentCardIndexHeadline++]["story-elements"][1].text %></p>
-                <p style="margin-top: 3px; color: white; transform: skewY(-5deg); font-weight: 100; font-size: 16px;"  ><%= allData.items[index].cards[currentCardIndexInfo++]["story-elements"][2].text %></p>
+                <p style="color: white; font-weight: 600; transform: skewY(-5deg); font-size: 23px;" ><%= allData.items[index].cards[indexOfPage]["story-elements"][1].text %></p>
+                <p style="margin-top: 3px; color: white; transform: skewY(-5deg); font-weight: 100; font-size: 16px;"  ><%= allData.items[index].cards[indexOfPage]["story-elements"][2].text %></p>
                 <p grid-area="lower-third" style="margin-top: auto; margin-left: 140px; font-size: 15px; color: white; transform: skewY(-5deg);"><%= allData.items[index].cards[0]["story-elements"][0].title %> | <%= allData.items[index].cards[0]["story-elements"][0]['image-attribution'] %></p>
         </div>
             </amp-story-grid-layer>
